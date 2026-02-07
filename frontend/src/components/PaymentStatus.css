@@ -1,0 +1,165 @@
+.payment-status {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.status-container {
+  background: white;
+  border-radius: 12px;
+  padding: 3rem 2rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  text-align: center;
+}
+
+.status-container.success {
+  border-top: 4px solid #10B981;
+}
+
+.status-container.failed {
+  border-top: 4px solid #EF4444;
+}
+
+.status-icon {
+  margin-bottom: 2rem;
+  animation: scaleIn 0.5s ease-out;
+}
+
+@keyframes scaleIn {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.status-container h2 {
+  color: #1a202c;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.status-message {
+  color: #4a5568;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+.payment-details {
+  background: #f7fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.transaction-id {
+  color: #2d3748;
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+.transaction-id code {
+  background: white;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-family: 'Courier New', monospace;
+  color: #667eea;
+  font-size: 0.9rem;
+  border: 1px solid #e2e8f0;
+  display: inline-block;
+  margin-top: 0.5rem;
+}
+
+.status-actions {
+  margin-bottom: 2rem;
+}
+
+.new-purchase-button {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 200px;
+}
+
+.new-purchase-button:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+.new-purchase-button:active {
+  transform: translateY(0);
+}
+
+.next-steps {
+  text-align: left;
+  background: #f0fdf4;
+  border: 1px solid #86efac;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-top: 2rem;
+}
+
+.next-steps h3 {
+  color: #065f46;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+
+.next-steps ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.next-steps li {
+  color: #047857;
+  padding: 0.5rem 0;
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.next-steps li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: #10b981;
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .payment-status {
+    padding: 1rem;
+  }
+
+  .status-container {
+    padding: 2rem 1.5rem;
+  }
+
+  .status-container h2 {
+    font-size: 1.5rem;
+  }
+
+  .status-message {
+    font-size: 1rem;
+  }
+
+  .new-purchase-button {
+    width: 100%;
+    min-width: auto;
+  }
+}

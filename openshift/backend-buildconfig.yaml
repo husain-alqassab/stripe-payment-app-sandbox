@@ -1,0 +1,36 @@
+apiVersion: build.openshift.io/v1
+kind: BuildConfig
+metadata:
+  name: stripe-backend-build
+  labels:
+    app: stripe-payment
+    component: backend
+spec:
+  source:
+    type: Git
+    git:
+      uri: https://github.com/your-org/your-repo.git
+      ref: main
+    contextDir: backend
+  strategy:
+    type: Docker
+    dockerStrategy:
+      dockerfilePath: Dockerfile
+  output:
+    to:
+      kind: ImageStreamTag
+      name: stripe-backend:latest
+  triggers:
+  - type: ConfigChange
+  - type: ImageChange
+---
+apiVersion: image.openshift.io/v1
+kind: ImageStream
+metadata:
+  name: stripe-backend
+  labels:
+    app: stripe-payment
+    component: backend
+spec:
+  lookupPolicy:
+    local: true

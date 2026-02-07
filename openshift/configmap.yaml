@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: app-config
+  labels:
+    app: stripe-payment
+data:
+  # Update these URLs based on your OpenShift routes
+  api-url: "https://api-your-domain.apps.openshift.example.com"
+  frontend-url: "https://your-domain.apps.openshift.example.com"

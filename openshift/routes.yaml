@@ -1,0 +1,43 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: stripe-frontend-route
+  labels:
+    app: stripe-payment
+    component: frontend
+  annotations:
+    haproxy.router.openshift.io/timeout: 30s
+spec:
+  host: your-domain.apps.openshift.example.com
+  to:
+    kind: Service
+    name: frontend-service
+    weight: 100
+  port:
+    targetPort: http
+  tls:
+    termination: edge
+    insecureEdgeTerminationPolicy: Redirect
+  wildcardPolicy: None
+---
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: stripe-backend-route
+  labels:
+    app: stripe-payment
+    component: backend
+  annotations:
+    haproxy.router.openshift.io/timeout: 60s
+spec:
+  host: api-your-domain.apps.openshift.example.com
+  to:
+    kind: Service
+    name: backend-service
+    weight: 100
+  port:
+    targetPort: http
+  tls:
+    termination: edge
+    insecureEdgeTerminationPolicy: Redirect
+  wildcardPolicy: None
